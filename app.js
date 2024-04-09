@@ -15,7 +15,7 @@ const app = express();
 // Connect to MongoDB using environment variables
 mongoose
   .connect(
-    `mongodb+srv://niru2002:ZGExrmhZMq4pJHwy@cluster0.fgecezi.mongodb.net/hired?retryWrites=true&w=majority`,
+    `mongodb+srv://niru2002:${process.env.MONGOKEY}@cluster0.fgecezi.mongodb.net/hired?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {

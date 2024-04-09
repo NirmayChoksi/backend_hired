@@ -4,8 +4,8 @@ const { Payment } = require("../models/payment");
 const { Company } = require("../models/user");
 
 const instance = new Razorpay({
-  key_id: "rzp_test_JXcaxpDmeAfOs4",
-  key_secret: "FOWAABF5EXdMnYDKHgYWKeGF",
+  key_id: process.env.KEYID,
+  key_secret: process.env.KEYSECRET,
 });
 
 exports.makePayment = async (req, res) => {

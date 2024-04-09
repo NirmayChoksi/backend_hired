@@ -147,7 +147,7 @@ const url =
 
 //     const token = jwt.sign(
 //       { userId: user._id },
-//       "wRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+//       process.env.JSWTOKEN,
 //       {
 //         expiresIn: "1d",
 //       }
@@ -261,7 +261,7 @@ exports.createUser = async (req, res) => {
 
     const token = jwt.sign(
       { userId: user._id },
-      "wRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      process.env.JSWTOKEN,
       {
         expiresIn: "1h",
       }
@@ -347,7 +347,7 @@ exports.verifyEmail = async (req, res) => {
   try {
     const decodedToken = jwt.verify(
       token,
-      "wRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+      process.env.JSWTOKEN
     );
 
     const tokenExpirationTime = new Date(decodedToken.exp * 1000);
@@ -405,7 +405,7 @@ exports.resendVerificationEmail = async (req, res) => {
     // Generate a new verification token
     const token = jwt.sign(
       { userId: user._id },
-      "wRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      process.env.JSWTOKEN,
       { expiresIn: "1d" }
     );
 
@@ -444,7 +444,7 @@ exports.resendVerificationEmail = async (req, res) => {
 //       }
 //       const token = jwt.sign(
 //         { email: fetchedUser.email, userId: fetchedUser._id },
-//         "wRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+//         process.env.JSWTOKEN,
 //         { expiresIn: "24h" }
 //       );
 //       res.status(200).json({
@@ -488,7 +488,7 @@ exports.userLogin = async (req, res) => {
 
     const token = jwt.sign(
       { email: user.email, userId: user._id },
-      "wRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      process.env.JSWTOKEN,
       { expiresIn: "24h" }
     );
 
@@ -553,7 +553,7 @@ exports.forgotPassword = async (req, res) => {
 
     const token = jwt.sign(
       { userId: user._id },
-      "wRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      process.env.JSWTOKEN,
       {
         expiresIn: "1h",
       }
@@ -584,7 +584,7 @@ exports.resetPassword = async (req, res) => {
 
     const decodedToken = jwt.verify(
       token,
-      "wRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+      process.env.JSWTOKEN
     );
 
     const user = await User.findById(decodedToken.userId);
