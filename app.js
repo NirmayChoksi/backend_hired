@@ -14,10 +14,10 @@ const app = express();
 
 // Connect to MongoDB using environment variables
 mongoose
-  .connect(
-    `mongodb+srv://niru2002:${process.env.MONGOKEY}@cluster0.fgecezi.mongodb.net/hired?retryWrites=true&w=majority`,
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(process.env.MONGOURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to database!");
   })
