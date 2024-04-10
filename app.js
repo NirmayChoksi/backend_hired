@@ -9,6 +9,7 @@ const userRoutes = require("./routes/user");
 const testimonialRoutes = require("./routes/testimonial");
 const jobPostRoutes = require("./routes/job-post");
 const chatRoutes = require("./routes/chats");
+require("dotenv").config();
 
 const app = express();
 

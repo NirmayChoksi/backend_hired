@@ -2,7 +2,7 @@ const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
 const nodemailer = require("nodemailer");
-
+require("dotenv").config();
 
 const { User } = require("../models/user");
 const { Company } = require("../models/user");
